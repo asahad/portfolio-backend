@@ -23,6 +23,12 @@ const sendFormSubmissionEmail = (formData) => {
             Name: name,
           },
         ],
+        bcc:[
+          {
+            "Email":"alhassansahad24@gmail.com",
+            "Name":"Alhassan Sahad"
+          }
+        ],
         Subject: "Form Submission to Alhassan Sahad Confirmation",
         // TextPart: `Hello, ${name}! Your message: "${message}" has been received successfully by Alhassan Sahad.`,
         HTMLPart: `<h1>Hello, ${name}!</h1><p>Your message: "${message}" has been received successfully by Alhassan Sahad. He will get back to you as soon as possible!. 
