@@ -10,8 +10,6 @@ const mailjetClient = mailjetPackage.connect(
 
 const sendFormSubmissionEmail = (formData) => {
   const { email, message, name } = formData;
-  console.log(formData)
-
   const emailData = {
     Messages: [
       {
@@ -32,7 +30,7 @@ const sendFormSubmissionEmail = (formData) => {
     ],
   };
 
-  mailjet
+  mailjetClient
     .post("send", { version: "v3.1" })
     .request(emailData)
     .then(() => console.log("Form submission email sent."))
@@ -40,3 +38,5 @@ const sendFormSubmissionEmail = (formData) => {
       console.error("Error sending form submission email:", error)
     );
 };
+
+module.exports = { sendFormSubmissionEmail };
