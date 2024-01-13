@@ -8,7 +8,9 @@ const mailjetClient = mailjetPackage.connect(
   process.env.MAILJET_API_SECRET_KEY
 );
 
-const sendFormSubmissionEmail = (userEmail, userName) => {
+const sendFormSubmissionEmail = (formData) => {
+  const { name, email, message } = formData;
+
   const emailData = {
     Messages: [
       {
@@ -18,13 +20,13 @@ const sendFormSubmissionEmail = (userEmail, userName) => {
         },
         To: [
           {
-            Email: userEmail,
-            Name: userName,
+            Email: email,
+            Name: name,
           },
         ],
         Subject: "Form Submission Confirmation",
-        TextPart: `Hello, ${userName}! Your form has been submitted successfully.`,
-        HTMLPart: `<h1>Hello, ${userName}!</h1><p>Your form has been submitted successfully. We will get back to you soon.</p>`,
+        TextPart: `Hello, ${name}! Your message: "${message}" has been received successfully.`,
+        HTMLPart: `<h1>Hello, ${name}!</h1><p>Your message: "${message}" has been received successfully. We will get back to you soon.</p>`,
       },
     ],
   };
@@ -37,5 +39,3 @@ const sendFormSubmissionEmail = (userEmail, userName) => {
       console.error("Error sending form submission email:", error)
     );
 };
-
-module.exports = { sendFormSubmissionEmail };
