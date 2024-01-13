@@ -1,14 +1,12 @@
-const mailjetPackage = require('node-mailjet');
-const dotenv = require('dotenv');
+const dotenv = require("dotenv");
+const mailjetPackage = require("node-mailjet");
 dotenv.config();
 
-
 // Configure Mailjet Mail
-const mailjetClient = connect(
+const mailjetClient = mailjetPackage.connect(
   process.env.MAILJET_API_KEY,
   process.env.MAILJET_API_SECRET_KEY
-)
-
+);
 
 const sendFormSubmissionEmail = (userEmail, userName) => {
   const emailData = {
@@ -31,7 +29,7 @@ const sendFormSubmissionEmail = (userEmail, userName) => {
     ],
   };
 
-  mailjetClient
+  mailjet
     .post("send", { version: "v3.1" })
     .request(emailData)
     .then(() => console.log("Form submission email sent."))
@@ -40,4 +38,4 @@ const sendFormSubmissionEmail = (userEmail, userName) => {
     );
 };
 
-export { sendFormSubmissionEmail };
+module.exports = { sendFormSubmissionEmail };

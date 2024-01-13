@@ -1,9 +1,4 @@
-// Form Submission Controllers
-// Handle Form Subsmission
-// route-POST/form-submission
-// access-public
-
-import { sendFormSubmissionEmail } from "./utils.js"; // Update the path as necessary
+const { sendFormSubmissionEmail } = require('./utils.js'); // Update the path as necessary
 
 const sendForm = async (req, res) => {
   const { name, email } = req.body;
@@ -13,7 +8,7 @@ const sendForm = async (req, res) => {
 
     res.status(200).json({
       message: "Form submitted Successfully",
-      data: FormData,
+      data: req.body, // It seems FormData is not defined, using req.body instead
     });
   } catch (error) {
     res.status(500).json({
@@ -28,4 +23,5 @@ const trialEndpoint = async (req, res) => {
     message: "This is working of course",
   });
 };
-export { sendForm, trialEndpoint };
+
+module.exports = { sendForm, trialEndpoint };
