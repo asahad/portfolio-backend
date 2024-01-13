@@ -15,17 +15,18 @@ const sendFormSubmissionEmail = (formData) => {
       {
         From: {
           Email: "alhassansahad24@gmail.com",
-          Name: "Winehub",
+          Name: "Alhassan Sahad",
         },
         To: [
           {
-            Email: email,
+            Email:email,
             Name: name,
           },
         ],
-        Subject: "Form Submission Confirmation",
-        TextPart: `Hello, ${name}! Your message: "${message}" has been received successfully.`,
-        HTMLPart: `<h1>Hello, ${name}!</h1><p>Your message: "${message}" has been received successfully. We will get back to you soon.</p>`,
+        Subject: "Form Submission to Alhassan Sahad Confirmation",
+        // TextPart: `Hello, ${name}! Your message: "${message}" has been received successfully by Alhassan Sahad.`,
+        HTMLPart: `<h1>Hello, ${name}!</h1><p>Your message: "${message}" has been received successfully by Alhassan Sahad. He will get back to you as soon as possible!. 
+        Than you`
       },
     ],
   };
