@@ -8,7 +8,7 @@ const sendForm = async (req, res) => {
 
     res.status(200).json({
       message: "Form submitted Successfully",
-      data: req.body, // It seems FormData is not defined, using req.body instead
+      data: req.body
     });
   } catch (error) {
     res.status(500).json({
