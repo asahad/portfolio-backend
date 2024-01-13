@@ -9,7 +9,8 @@ const mailjetClient = mailjetPackage.connect(
 );
 
 const sendFormSubmissionEmail = (formData) => {
-  const { name, email, message } = formData;
+  const { email, message, name } = formData;
+  console.log(formData)
 
   const emailData = {
     Messages: [
